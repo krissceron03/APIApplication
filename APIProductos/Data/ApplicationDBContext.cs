@@ -9,6 +9,17 @@ namespace APIProductos.Data
            
             DbContextOptions<ApplicationDBContext> options ) : base( options ) { }
             
-        DbSet<Producto> Productos { get; set; }
+        public DbSet<Producto> Productos { get; set; }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Producto>().HasData(
+                new Producto
+                {
+                    IdProducto = 100,
+                    Nombre="Producto1",
+                    Descripcion="Descipcion Producto1",
+                    Cantidad=12
+                });
+        }
     }
 }
