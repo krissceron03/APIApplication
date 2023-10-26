@@ -5,7 +5,7 @@
 namespace APIProductos.Migrations
 {
     /// <inheritdoc />
-    public partial class CrearBase : Migration
+    public partial class DataBase : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -24,6 +24,11 @@ namespace APIProductos.Migrations
                 {
                     table.PrimaryKey("PK_Productos", x => x.IdProducto);
                 });
+
+            migrationBuilder.InsertData(
+                table: "Productos",
+                columns: new[] { "IdProducto", "Cantidad", "Descripcion", "Nombre" },
+                values: new object[] { 100, 12, "Descipcion Producto1", "Producto1" });
         }
 
         /// <inheritdoc />
